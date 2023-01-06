@@ -17,6 +17,25 @@ void SLL_DestroyNode(Node* Node)
 
 void SLL_AppendNode(Node** Head, Node* NewNode)
 {
+	if ((*Head) == NULL)
+	{
+		*Head = NewNode;
+	}
+	else
+	{
+		Node* Tail = (*Head);
+		while (Tail -> NextNode != NULL)
+		{
+			Tail = Tail->NextNode;
+		}
 
+		Tail->NextNode = NewNode;
+	}
+}
+
+void SLL_InsertAfter(Node* Current, Node* NewNode)
+{
+	NewNode->NextNode = Current->NextNode;
+	Current->NextNode = NewNode;
 }
 
